@@ -1,18 +1,18 @@
 import React from "react";
 import Form from "./Forms";
+import "./MainDiv.css";
 import TableLeads from "./TableLeads";
-import "./MainDiv.css"
 
 class Main extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
-    
+
         let leads = props.leads;
 
         this.state = {
             leads
         }
-    
+
     }
 
     onHandleSubmit = (lead) => {
@@ -21,11 +21,23 @@ class Main extends React.Component {
         })
     }
 
+    onHandleDeleteLead = (index) => {
+        const { leads } = this.state;
+
+        this.setState({
+            leads: leads.filter((leads, i) => {
+                return i != index;
+            })
+
+        })
+
+    }
+
     render() {
-        return(
+        return (
             <main>
-                <Form onHandleSubmit={this.onHandleSubmit}/>
-                <TableLeads leads={this.state.leads} />
+                <Form onHandleSubmit={this.onHandleSubmit} />
+                <TableLeads leads={this.state.leads} onDeleteLead={this.onHandleDeleteLead} />
             </main>
         );
     }

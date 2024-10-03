@@ -1,23 +1,38 @@
 import React from "react";
+import "./TableLeads.css";
 import TableRow from "./TableRow";
-import "./TableLeads.css"
 
 class TableLeads extends React.Component {
     render() {
 
         const rows = [];
 
-        this.props.leads.forEach(lead => {
+        // this.props.leads.forEach(lead => {
+        //     rows.push(
+        //         <TableRow 
+        //                 name={lead.name}
+        //                 email={lead.email}
+        //                 numPhone={lead.numPhone}
+        //          />
+        //     )
+        // });
+
+        const onDeleteLead = this.props.onDeleteLead;
+
+        this.props.leads.map((lead, index) => {
             rows.push(
-                <TableRow 
-                        name={lead.name}
-                        email={lead.email}
-                        numPhone={lead.numPhone}
-                 />
+                <TableRow
+                    name={lead.name}
+                    email={lead.email}
+                    numPhone={lead.numPhone}
+                    key={index}
+                    index={index}
+                    deleteLead={onDeleteLead}
+                />
             )
         })
 
-        return(
+        return (
             <table>
                 <thead>
                     <tr>

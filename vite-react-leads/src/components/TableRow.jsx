@@ -2,13 +2,15 @@ import React from "react";
 
 class TableRow extends React.Component {
     render() {
-        return(
+        const { name, email, numPhone, index, deleteLead } = this.props;
+
+        return (
             <tr>
-                <td>{this.props.name}</td>
-                <td>{this.props.email}</td>
-                <td>{this.props.numPhone}</td>
+                <td>{name}</td>
+                <td>{email}</td>
+                <td>{numPhone}</td>
                 <td>
-                    <button>Exluir</button>
+                    <button onClick={() => { deleteLead(index) }}>Exluir</button>
                 </td>
             </tr>
         );

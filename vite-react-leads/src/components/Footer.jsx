@@ -1,11 +1,11 @@
 import React from "react";
-import "./Footer.css"
+import "./Footer.css";
 
 class Footer extends React.Component {
     render() {
-        return(
+        return (
             <footer>
-               <p>Desenvolvido na aula shift</p>
+                <p>Desenvolvido na aula shift</p>
             </footer>
         );
     }
